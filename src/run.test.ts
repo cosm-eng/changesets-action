@@ -2,8 +2,8 @@ import fixturez from "fixturez";
 import * as github from "@actions/github";
 import fs from "fs-extra";
 import path from "path";
-import writeChangeset from "@changesets/write";
-import { Changeset } from "@changesets/types";
+import writeChangeset from "@cosm-changesets/write";
+import { Changeset } from "@cosm-changesets/types";
 import { runVersion } from "./run";
 
 jest.mock("@actions/github", () => ({

@@ -1,6 +1,6 @@
-import { PreState, NewChangeset } from "@changesets/types";
-import { readPreState } from "@changesets/pre";
-import readChangesets from "@changesets/read";
+import { PreState, NewChangeset } from "@cosm-changesets/types";
+import { readPreState } from "@cosm-changesets/pre";
+import readChangesets from "@cosm-changesets/read";
 
 export type ChangesetState = {
   preState: PreState | undefined;

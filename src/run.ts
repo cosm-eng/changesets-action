@@ -4,7 +4,7 @@ import fs from "fs-extra";
 import { getPackages, Package } from "@manypkg/get-packages";
 import path from "path";
 import * as semver from "semver";
-import { PreState } from "@changesets/types";
+import { PreState } from "@cosm-changesets/types";
 import {
   getChangelogEntry,
   getChangedPackages,
@@ -163,11 +163,11 @@ export async function runPublish({
 
 const requireChangesetsCliPkgJson = (cwd: string) => {
   try {
-    return require(resolveFrom(cwd, "@changesets/cli/package.json"));
+    return require(resolveFrom(cwd, "@cosm-changesets/cli/package.json"));
   } catch (err) {
     if (err && err.code === "MODULE_NOT_FOUND") {
       throw new Error(
-        `Have you forgotten to install \`@changesets/cli\` in "${cwd}"?`
+        `Have you forgotten to install \`@cosm-changesets/cli\` in "${cwd}"?`
       );
     }
     throw err;
@@ -285,7 +285,7 @@ export async function runVersion({
     let cmd = semver.lt(changesetsCliPkgJson.version, "2.0.0")
       ? "bump"
       : "version";
-    await exec("node", [resolveFrom(cwd, "@changesets/cli/bin.js"), cmd], {
+    await exec("node", [resolveFrom(cwd, "@cosm-changesets/cli/bin.js"), cmd], {
       cwd,
     });
   }
